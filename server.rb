@@ -508,4 +508,8 @@ class Public < Sinatra::Base
   get '/inputs' do
     erb :inputs
   end
+
+  get '/loader' do
+    erb :loader
+  end
 end

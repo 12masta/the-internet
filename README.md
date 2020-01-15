@@ -71,7 +71,7 @@ Install your dependencies:
 
 Start the server:
 
-    rackup
+    bundle exec rackup
 
 Load the page you want to see in your browser:
 
