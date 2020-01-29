@@ -1,7 +1,7 @@
 <h3>Add/Remove Elements</h3>
 </br>
 <div class="example">
-  <button onclick="addElement()">Add Element</button>
+  <button onclick="addElement()" data-automation="add-element-button">Add Element</button>
   <hr />
   <div id="elements">
     <% if number_of_elements %>
@@ -14,11 +14,21 @@
 
 <script>
   function addElement() {
-    $("<button class='added-manually' onclick='deleteElement()'>Delete</button>").appendTo('#elements');
+    let number = makeid(5);
+    $("<button class='added-manually' onclick='deleteElement()' data-automation='delete-button-" + number +"'>Delete</button>").appendTo('#elements');
   }
   function deleteElement() {
     $('#elements button:first-child').remove();
   }
+  function makeid(length) {
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
 </script>
 <style>
 button.added-manually {
