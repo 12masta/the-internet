@@ -25,7 +25,7 @@
   };
 
   function showDelay(locator) {
-    $(locator).after("<div id='loading'>Wait for it... <img src='/img/ajax-loader.gif'></div></br>");
+    $(locator).after("<div id='loading' data-automation='loading'>Wait for it... <img src='/img/ajax-loader.gif'></div></br>");
   };
 
   function pauseThenToggleControls(target) {
@@ -41,19 +41,18 @@
   function toggleCheckboxControls() {
     var btn = $("#checkbox-example button").first();
     var check = $("#checkbox").first();
-    var load = $("#loading");
     if ( btn.text() == "Remove") {
       check.remove();
       btn.text("Add");
       btn.after("<p id='message'>It's gone!</p>");
       btn.attr("disabled", false);
-      load.hide();
+      $("#loading").hide();
     } else {
       btn.text("Remove");
-      btn.after("<div><input type='checkbox' id='checkbox'> A checkbox</div>");
+      btn.before("<div id='checkbox' data-automation='checkbox'><input type='checkbox' label='blah' data-automation='checkbox-input'> A checkbox</div>");
       btn.after("<p id='message'>It's back!</p>");
       btn.attr("disabled", false);
-      load.hide();
+      $("#loading").hide();
     }
   };
 
@@ -83,8 +82,8 @@
   <h4 class=subheader>Remove/add</h4>
   </br>
   <form id="checkbox-example">
-    <div id="checkbox"><input type="checkbox" label="blah"> A checkbox</div>
-    <button autocomplete="off" type="button" onclick="swapCheckbox()">Remove</button>
+    <div id="checkbox" data-automation="checkbox"><input type="checkbox" label="blah" data-automation="checkbox-input"> A checkbox</div>
+    <button autocomplete="off" type="button" onclick="swapCheckbox()" data-automation="remove-add-button">Remove</button>
   </form>
 
   <hr>

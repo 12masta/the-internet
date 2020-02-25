@@ -6,14 +6,14 @@
   <div class='row'>
     <div class='large-12 columns large-centered'>
       <div class='large-2 columns'>
-        <a id='<%= @id[0] %>' href='' class='button'><%= @text[rand(@text.length)] %></a></br>
-        <a id='<%= @id[1] %>' href='' class='button alert'><%= @text[rand(@text.length)] %></a></br>
-        <a id='<%= @id[2] %>' href='' class='button success'><%= @text[rand(@text.length)] %></a></br>
+        <a id='<%= @id[0] %>' href='' class='button' data-automation='button'><%= @text[rand(@text.length)] %></a></br>
+        <a id='<%= @id[1] %>' href='' class='button alert' data-automation='button-alert'><%= @text[rand(@text.length)] %></a></br>
+        <a id='<%= @id[2] %>' href='' class='button success' data-automation='button-success'><%= @text[rand(@text.length)] %></a></br>
       </div>
       <div class='large-10 columns'>
-        <table>
-          <thead>
-            <tr>
+        <table data-automation="table">
+          <thead data-automation="table-head">
+            <tr data-automation="table-row-head">
               <th>Lorem</th>
               <th>Ipsum</th>
               <th>Dolor</th>
@@ -25,15 +25,15 @@
           </thead>
           <tbody>
             <% 10.times do |count| %>
-            <tr>
+            <tr data-automation="table-row-body">
               <td>Iuvaret<%= count %></td>
               <td>Apeirian<%= count %></td>
               <td>Adipisci<%= count %></td>
-              <td>Definiebas<%= count %></td>
+              <td data-automation="table-row-body-sit">Definiebas<%= count %></td>
               <td>Consequuntur<%= count %></td>
               <td>Phaedrum<%= count %></td>
               <td>
-                <a href='#edit'>edit</a>
+                <a href='#edit' data-automation="table-row-body-edit">edit</a>
                 <a href='#delete'>delete</a>
               </td>
             </tr>
